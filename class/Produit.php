@@ -23,7 +23,7 @@ class Produit {
   }
  
   // Setters et Getters
-  public function setNom(string $value): self
+  final public function setNom(string $value): self
   {
     $this->nom = $value;
     return $this;
@@ -33,7 +33,7 @@ class Produit {
     return $this->nom;
   }
  
-  public function setDescription(?string $value): self
+  final public function setDescription(?string $value): self
   {
     $this->description = $value;
     return $this;
@@ -43,7 +43,7 @@ class Produit {
     return $this->description;
   }
  
-  public function setQuantite(int $value): self
+  final public function setQuantite(int $value): self
   {
     $this->quantite = $value;
     return $this;
@@ -53,7 +53,7 @@ class Produit {
     return $this->quantite;
   }
  
-  public function setPrix(float $value): self
+  final public function setPrix(float $value): self
   {
     $this->prix = $value;
     return $this;

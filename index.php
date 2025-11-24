@@ -2,11 +2,15 @@
 
 // Import des classes
 require_once './class/Produit.php';
+require_once './class/ProduitPhysique.php';
+
 require_once './class/CompteBanquaire.php';
+
+require_once './class/Personne.php';
  
 // Création d'un objet de type 'Produit'
-$livre1 = new Produit('Frigiel et fluffy 1', null, 200, 24);
-$livre2 = new Produit('Frigiel et fluffy 2', null, 300, 24);
+$livre1 = new ProduitPhysique('Frigiel et fluffy 1', null, 200, 24, 2.5);
+$livre2 = new ProduitPhysique('Frigiel et fluffy 2', null, 300, 24, 2.5);
 
 $CompteBanquaire1 = new CompteBanquaire('Enzo', -25500);
 
@@ -25,6 +29,15 @@ echo '<p>' . $CompteBanquaire1->getSolde() . '</p>';
 
 
 echo Produit::TVA;
+
+
+
+
+
+$Personne1 = new Personne ('Enzo', 'Varlet', '01/04/1998');
+var_dump ($Personne1);
+echo $Personne1->getAge();
+
 ?>
 
 <!DOCTYPE html>
@@ -47,18 +60,20 @@ echo Produit::TVA;
             <?php 
                 echo '<p>' . $livre1->getNom() . '</p>';
                 echo '<p>' . $livre1->getQuantite() . '</p>';
-                echo '<p>' . $livre1->getPrix() . '</p>';
-                echo '<p>' . $livre1->getTTC() . '</p>';
+                echo '<p>' . $livre1->getPrix() . ' €</p>';
+                echo '<p>' . $livre1->getTTC() . ' €</p>';
                 echo '<p>' . $livre1->getTVAmontant() . '</p>';
+                echo '<p>' . $livre1->getPoids() . ' kg</p>';
             ?>
         </div>
         <div>
             <?php 
                 echo '<p>' . $livre2->getNom() . '</p>';
                 echo '<p>' . $livre2->getQuantite() . '</p>';
-                echo '<p>' . $livre2->getPrix() . '</p>';
-                echo '<p>' . $livre2->getTTC() . '</p>';
+                echo '<p>' . $livre2->getPrix() . ' €</p>';
+                echo '<p>' . $livre2->getTTC() . ' €</p>';
                 echo '<p>' . $livre2->getTVAmontant() . '</p>';
+                echo '<p>' . $livre1->getPoids() . ' kg</p>';
             ?>
         </div>
     </main>
