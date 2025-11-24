@@ -1,0 +1,15 @@
+:root {
+    --white : #e3e3e3;
+    --black : #191919;
+}
+
+body {
+    background-color: var(--white);
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+
+    color: var(--black);
+}

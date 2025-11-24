@@ -2,6 +2,6 @@
 
 Objectif : Apprendre l'architecture orientée objet (objet, classes et autres)
 
-Technologies utilisées : 
+Technologies utilisées :
 
-- JavaScript
+- PHP
