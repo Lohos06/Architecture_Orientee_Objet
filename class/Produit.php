@@ -7,6 +7,8 @@ class Produit {
   private $quantite;
   private $prix;
 
+  const TVA = 1.20;
+
   public function __construct(
     string $nom,
     ?string $description,
@@ -60,4 +62,15 @@ class Produit {
   {
     return $this->prix;
   }
+
+  public function getTTC() : float
+  {
+    return $this->prix * self::TVA; 
+  }
+
+    public function getTVAmontant() : float
+  {
+    return $this->prix * (self::TVA - 1); 
+  }
+
 }
