@@ -25,7 +25,8 @@ abstract class AbstractProduit {
   { $this->prix = $value;
     return $this; }
   public function getPrix(): float
-  {return $this->prix; }
+  { $this->ajouterHistorique($this->prix);
+    return $this->prix; }
 
 
 }

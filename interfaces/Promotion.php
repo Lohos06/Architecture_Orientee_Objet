@@ -1,5 +1,5 @@
 <?php
 
 interface Promotion {
-  public function appliquerPromotion(int $value);
+  public function appliquerPromotion($item, int $value);
 }

@@ -1,8 +1,12 @@
 <?php
 
 require_once "AbstractProduit.php";
+require_once './trait/Historique.php';
 
 class ProduitPhysique extends AbstractProduit {
+
+  use HistoriqueTrait;
+
   private $poids;
   const FRAITLIVRAISON = 2;
 
@@ -16,7 +20,10 @@ class ProduitPhysique extends AbstractProduit {
   }
 
   public function CalculerPrixFinal() : float {
-    return $this->prix + self::FRAITLIVRAISON;
+
+    $prixFinal = $this->prix + self::FRAITLIVRAISON;
+    $this->ajouterHistorique($prixFinal);
+    return $prixFinal;
   }
  
   public function setPoids(float $value): self

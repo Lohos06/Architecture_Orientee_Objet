@@ -1,8 +1,12 @@
 <?php
 
 require_once "AbstractProduit.php";
+require_once './trait/Historique.php';
 
 class ProduitVirtuel extends AbstractProduit {
+
+  use HistoriqueTrait;
+
   private $fichier;
 
   public function __construct(
@@ -15,6 +19,7 @@ class ProduitVirtuel extends AbstractProduit {
   }
 
   public function CalculerPrixFinal() : float {
+    $this->ajouterHistorique($this->prix);
     return $this->prix;
   }
  

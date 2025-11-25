@@ -1,10 +1,9 @@
 <?php
 
-require_once "./interafaces/Promotion.php";
+require_once "./interfaces/Promotion.php";
 
-class ProduitPhysique extends AbstractProduit {
-
-    public function appliquerPromotion(int $value) {
-        
+class ReductionFixe {
+    public function appliquerPromotion($item, float $value) {
+        return $item->CalculerPrixFinal() - $value;
     } 
 }

@@ -3,13 +3,14 @@
 // Import des classes
 require_once './class/ProduitPhysique.php';
 require_once './class/ProduitVirtuel.php';
+require_once './class/ReductionFixe.php';
+require_once './class/ReductionPourcentage.php';
+
 
 $livre1 = new ProduitPhysique('Frigiel et fluffy Tome 1', 24.50, 3);
 echo $livre1->getNom();
 echo '<br>';
 echo $livre1->getPrix();
-echo '<br>';
-echo $livre1->CalculerPrixFinal();
 echo '<br>';
 echo $livre1->getPoids();
 
@@ -21,9 +22,29 @@ echo $livre1Virtuel->getNom();
 echo '<br>';
 echo $livre1Virtuel->getPrix();
 echo '<br>';
-echo $livre1Virtuel->CalculerPrixFinal();
-echo '<br>';
 echo $livre1Virtuel->getFichier();
+
+echo '<br>';
+echo '<br>';
+
+$ReductionFixe = new ReductionFixe();
+$livre1->setPrix($ReductionFixe->appliquerPromotion($livre1, 10));
+echo $livre1->CalculerPrixFinal();
+
+echo '<br>';
+echo '<br>';
+
+$ReductionFixe = new ReductionPourcentage();
+$livre1Virtuel->setPrix($ReductionFixe->appliquerPromotion($livre1Virtuel, 50));
+echo $livre1Virtuel->CalculerPrixFinal();
+
+echo '<br>';
+echo '<br>';
+
+var_dump($livre1->afficherHistorique());
+echo '<br>';
+var_dump($livre1Virtuel->afficherHistorique());
+
 ?>
 
 <!DOCTYPE html>
