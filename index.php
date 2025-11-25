@@ -1,42 +1,23 @@
 <?php
 
 // Import des classes
-require_once './class/Produit.php';
-require_once './class/ProduitPhysique.php';
+require_once './class/Developper.php';
+require_once './class/Designer.php';
+require_once './class/Entreprise.php';
 
-require_once './class/CompteBanquaire.php';
+$dev1 = new Developper(2000);
+echo $dev1->travailler();
+echo $dev1->getSalaire();
 
-require_once './class/Personne.php';
- 
-// Création d'un objet de type 'Produit'
-$livre1 = new ProduitPhysique('Frigiel et fluffy 1', null, 200, 24, 2.5);
-$livre2 = new ProduitPhysique('Frigiel et fluffy 2', null, 300, 24, 2.5);
+$des1 = new Designer(1000);
+echo $des1->travailler();
+echo $des1->getSalaire();
 
-$CompteBanquaire1 = new CompteBanquaire('Enzo', -25500);
+$entreprise = new Entreprise();
+$entreprise->addEmployer($dev1);
+$entreprise->addEmployer($des1);
 
-echo '<p>' . $CompteBanquaire1->getTitulaire() . '</p>';
-echo '<p>' . $CompteBanquaire1->getSolde() . '</p>';
-
-$CompteBanquaire1->crediter(8000);
-
-echo '<p>' . $CompteBanquaire1->getTitulaire() . '</p>';
-echo '<p>' . $CompteBanquaire1->getSolde() . '</p>';
-
-$CompteBanquaire1->debiter(200);
-
-echo '<p>' . $CompteBanquaire1->getTitulaire() . '</p>';
-echo '<p>' . $CompteBanquaire1->getSolde() . '</p>';
-
-
-echo Produit::TVA;
-
-
-
-
-
-$Personne1 = new Personne ('Enzo', 'Varlet', '01/04/1998');
-var_dump ($Personne1);
-echo $Personne1->getAge();
+echo $entreprise->getMasseSalariale();
 
 ?>
 
@@ -54,28 +35,7 @@ echo $Personne1->getAge();
 <body>
     <header></header>
     <main>
-        <h1>Architecure Orientée Objet : Produits a vendre</h1>
-
-        <div>
-            <?php 
-                echo '<p>' . $livre1->getNom() . '</p>';
-                echo '<p>' . $livre1->getQuantite() . '</p>';
-                echo '<p>' . $livre1->getPrix() . ' €</p>';
-                echo '<p>' . $livre1->getTTC() . ' €</p>';
-                echo '<p>' . $livre1->getTVAmontant() . '</p>';
-                echo '<p>' . $livre1->getPoids() . ' kg</p>';
-            ?>
-        </div>
-        <div>
-            <?php 
-                echo '<p>' . $livre2->getNom() . '</p>';
-                echo '<p>' . $livre2->getQuantite() . '</p>';
-                echo '<p>' . $livre2->getPrix() . ' €</p>';
-                echo '<p>' . $livre2->getTTC() . ' €</p>';
-                echo '<p>' . $livre2->getTVAmontant() . '</p>';
-                echo '<p>' . $livre1->getPoids() . ' kg</p>';
-            ?>
-        </div>
+        <h1>Architecure Orientée Objet : Produits a vendre</h1>  
     </main>
     <footer></footer>
 </body>
