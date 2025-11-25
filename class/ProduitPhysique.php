@@ -1,28 +1,27 @@
-<?php 
+<?php
 
-class ProduitPhysique extends Produit {
-  // Liste des propriétés
+require_once "AbstractProduit.php";
+
+class ProduitPhysique extends AbstractProduit {
   private $poids;
+  const FRAITLIVRAISON = 2;
 
   public function __construct(
     string $nom,
-    ?string $description,
-    int $quantite,
     float $prix,
     float $poids
   ){
-    parent::__construct($nom, $description, $quantite, $prix);
+    parent::__construct($nom, $prix);
     $this->setPoids($poids);
   }
+
+  public function CalculerPrixFinal() : float {
+    return $this->prix + self::FRAITLIVRAISON;
+  }
  
-  // Setter et Getter
   public function setPoids(float $value): self
-  {
-    $this->poids = $value;
-    return $this;
-  }
+  { $this->poids = $value;
+    return $this; }
   public function getPoids(): float
-  {
-    return $this->poids;
-  }
+  { return $this->poids; }
 }

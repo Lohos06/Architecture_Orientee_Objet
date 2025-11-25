@@ -1,24 +1,29 @@
 <?php
 
 // Import des classes
-require_once './class/Developper.php';
-require_once './class/Designer.php';
-require_once './class/Entreprise.php';
+require_once './class/ProduitPhysique.php';
+require_once './class/ProduitVirtuel.php';
 
-$dev1 = new Developper(2000);
-echo $dev1->travailler();
-echo $dev1->getSalaire();
+$livre1 = new ProduitPhysique('Frigiel et fluffy Tome 1', 24.50, 3);
+echo $livre1->getNom();
+echo '<br>';
+echo $livre1->getPrix();
+echo '<br>';
+echo $livre1->CalculerPrixFinal();
+echo '<br>';
+echo $livre1->getPoids();
 
-$des1 = new Designer(1000);
-echo $des1->travailler();
-echo $des1->getSalaire();
+echo '<br>';
+echo '<br>';
 
-$entreprise = new Entreprise();
-$entreprise->addEmployer($dev1);
-$entreprise->addEmployer($des1);
-
-echo $entreprise->getMasseSalariale();
-
+$livre1Virtuel = new ProduitVirtuel('Frigiel et fluffy Tome 1', 24.50, "/download/F&F_Tome1");
+echo $livre1Virtuel->getNom();
+echo '<br>';
+echo $livre1Virtuel->getPrix();
+echo '<br>';
+echo $livre1Virtuel->CalculerPrixFinal();
+echo '<br>';
+echo $livre1Virtuel->getFichier();
 ?>
 
 <!DOCTYPE html>
